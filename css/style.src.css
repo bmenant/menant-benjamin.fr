@@ -1,0 +1,561 @@
+/*
+  HTML5 ✰ Boilerplate
+
+  style.css contains a reset, font normalization and some base styles.
+
+  credit is left where credit is due.
+  much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/*
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+  There are three custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
+*/
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+
+/* normalize monospace sizing
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+/*
+ * Font declaration
+ */
+
+@font-face {
+    font-family: 'BMBizmeud';
+    src: url('bizmeud-webfont.eot');
+    src: url('bizmeud-webfont.eot?') format('embedded-opentype'),
+         url('bizmeud-webfont.woff') format('woff'),
+         url('bizmeud-webfont.ttf') format('truetype'),
+         url('bizmeud-webfont.svg#bizmeud') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+ * minimal base styles
+ */
+
+
+body, select, input, textarea {
+  /* set your base font here, to apply evenly */
+  color: rgb(30, 30, 30);
+  font-family : Verdana, Arial, sans-serif;
+  font-size   : 15px;
+  line-height : 1.333em;
+}
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active, a:focus { outline: none; }
+
+ul, ol { list-style: none; margin-left: 0px; }
+li { list-style: none; }
+ol { list-style-type: decimal; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; }
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre {
+  padding: 15px;
+
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+textarea { overflow: auto; } /* thnx ivannikolic! www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+.ie6 legend, .ie7 legend { margin-left: -7px; } /* thnx ivannikolic! */
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid {
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red;
+ -webkit-box-shadow: 0px 0px 5px red;
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid,
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink. */
+::-moz-selection{ background: #FE0; color:#111; text-shadow: none; }
+::selection { background:#FE0; color:#111; text-shadow: none; }
+
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FE0; }
+
+/* make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+
+
+/*
+ * Non-semantic helper classes
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.visuallyhidden { position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;
+}
+
+.clearfix:after { clear: both; }
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+
+
+
+
+
+ /* Primary Styles
+    Author: Benjamin MENANT
+ */
+
+/**
+ * Global design and layout
+ *
+ * @section global
+ * =global =layout
+ */
+body {
+  background-size   : cover;
+  background-repeat : no-repeat;
+}
+body.couleur-fond-b,
+body.couleur-fond-n #main {
+  color           : rgb(30, 30, 30);
+  background-color: #FFF;
+}
+.couleur-fond-n,
+.couleur-fond-b #main {
+  color           : rgb(230, 230, 230);
+  background-color: #000;
+}
+
+  /**
+   * Footer and Main parts
+   *
+   * @subsection footer & main
+   * =footer =main
+   */
+  footer {
+    margin: 0 1em 1em;  /* 15px */
+  }
+  .taille-29 footer {
+    margin: 0 2em 2em;
+  }
+  .taille-58 footer {
+    margin: 0 4em 4em;
+  }
+  footer ul {
+    font-size   : 0.733em;
+    line-height : 1.364em;
+  }
+
+  #main ul {
+    font-size   : 2em;  /* 30px */
+    line-height : 0.8em;  /* 30px */
+    padding-top : 0.2em;  /* ^^^^ */
+    margin      : 0 .5em 2em; /* 15px */
+  }
+  .taille-29 #main ul {
+    margin: 0 1em 2em;
+  }
+  .taille-58 #main ul {
+    margin: 0 2em 2em;
+  }
+    #main li {
+      float       : left;
+      margin-right: .2em;
+    }
+    .ie8 #main li:after,
+    #main li:not(:last-child):after {
+      content    : '—';
+      margin-left: 0.2em;
+    }
+
+  /**
+   * Header
+   *
+   * @subsection header
+   * =header
+   */
+  h1 {
+    width : 10em; /* 150px + 2*15px */
+    height: 6em;  /* 90px + 2*15px  */
+    margin: 1em;  /* 15px */
+  }
+  .taille-29 h1 {
+    width : 30em; /* 450px + 2*30px */
+    height: 14em; /* 210px + 2*30px */
+    margin: 2em;  /* 30px */
+  }
+  .taille-58 h1 {
+    width : 58em; /* 870px + 2*60px */
+    height: 28em; /* 420px + 2*60px */
+    margin: 4em;  /* 60px */
+  }
+
+/**
+ * Micro typography
+ *
+ * @section micro typography
+ * =microtypography
+ */
+span.ponctuation-haute {
+  margin-left: .125em;
+}
+cite {
+  font-style: normal;
+}
+cite:before {
+  font-family     : Verdana, Arial, sans-serif;
+  font-size-adjust: none;
+  margin-right    : .125em;
+  content         : '‹';
+}
+cite:after {
+  font-family     : Verdana, Arial, sans-serif;
+  font-size-adjust: none;
+  margin-left     : .125em;
+  content         : '›';
+}
+.font {
+  font-family     : BMBizmeud, sans-serif;
+  /*font-size-adjust: 0.73;*/
+}
+
+/**
+ * Links
+ *
+ * @section links
+ * =link
+ */
+
+/**
+ * Sur fond blanc
+ *
+ * @subsection blanc
+ */
+.couleur-fond-b a,
+.couleur-fond-b a:active,
+.couleur-fond-b a:visited,
+.couleur-fond-n #main a,
+.couleur-fond-n #main a:active,
+.couleur-fond-n #main a:visited {
+  color: rgb(30, 30, 30);
+}
+.couleur-fond-b a:hover,
+.couleur-fond-b a:focus {
+  color: #000;
+}
+.couleur-fond-b a:focus,
+.couleur-fond-n #main a:focus {
+  color           : #FFF;
+  background-color: #000;
+}
+
+/**
+ * Sur fond noir
+ *
+ * @subsection noir
+ */
+.couleur-fond-n a,
+.couleur-fond-n a:active,
+.couleur-fond-n a:visited,
+.couleur-fond-b #main a,
+.couleur-fond-b #main a:active,
+.couleur-fond-b #main a:visited {
+  color: rgb(230, 230, 230);
+}
+.couleur-fond-n a:hover,
+.couleur-fond-n a:focus {
+  color: #FFF;
+}
+.couleur-fond-n a:focus,
+.couleur-fond-b #main a:focus {
+  color           : #000;
+  background-color: #FFF;
+}
+
+/**
+ * Liens principaux
+ *
+ * @subsection main
+ */
+#main a {
+  text-decoration   : none;
+  display           : block;
+  float             : left;
+  position          : relative;
+  top               : 0;
+  padding           : 0;
+  margin            : 0;
+  -moz-transition   : 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+  -o-transition     : 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+  -webkit-transition: 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+  transition        : 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+}
+#main a:hover,
+#main a:focus,
+#main a:active {
+  top           : -1.2em;
+  padding-bottom:  1.2em;
+  margin-bottom : -1.2em;
+}
+  #main a span,
+  #main a span,
+  #main a span {
+    display: block;
+    -moz-transition   : 140ms -moz-transform;
+    -o-transition     : 140ms -o-transform;
+    -webkit-transition: 140ms -webkit-transform;
+    transition        : 140ms transform;
+  }
+  #main a:hover span,
+  #main a:focus span,
+  #main a:active span {
+    -moz-transform    : scaleY(-1);
+    -webkit-transform : scaleY(-1);
+    -o-transform      : scaleY(-1);
+    -ms-transform     : scaleY(-1);
+    transform         : scaleY(-1);
+  }
+  .ie.no-csstransforms #main a:hover span,
+  .ie.no-csstransforms #main a:focus span,
+  .ie.no-csstransforms #main a:active span {
+    zoom: -1;
+  }
+
+/**
+ * Sur fond blanc
+ *
+ * @subsubsection blanc
+ */
+.couleur-fond-b #main a:hover,
+.couleur-fond-b #main a:focus,
+.couleur-fond-b #main a:active {
+  color           : rgb(30, 30, 30);
+}
+/**
+ * Sur fond noir
+ *
+ * @subsubsection noir
+ */
+.couleur-fond-n #main a:hover,
+.couleur-fond-n #main a:focus,
+body.couleur-fond-n #main a:active {
+  color           : rgb(230, 230, 230);
+}
+
+/**
+ * Liens du pied de page
+ *
+ * @subsection footer
+ */
+footer a:hover span,
+footer a:focus span,
+footer a:active span {
+    -moz-transform    : scaleX(-1);
+    -webkit-transform : scaleX(-1);
+    -o-transform      : scaleX(-1);
+    -ms-transform     : scaleX(-1);
+    transform         : scaleX(-1);
+}
+.no-csstransforms footer a:hover,
+.no-csstransforms footer a:focus,
+.no-csstransforms footer a:active {
+  text-decoration: overline;
+}
+
+/*
+ * Media queries for responsive design
+ * These follow after primary styles so they will successfully override.
+ */
+
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */
+
+}
+
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */
+
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-width: 650px) {
+
+  #main a:hover span,
+  #main a:focus span,
+  #main a:active span {
+    -moz-transform    : none;
+    -webkit-transform : none;
+    -o-transform      : none;
+    -ms-transform     : none;
+    transform         : none;
+  }
+  #main a:hover,
+  #main a:focus,
+  #main a:active {
+    top               : 0;
+    padding-bottom    : 0;
+    margin-bottom     : 0;
+  }
+  .couleur-fond-b #main a:hover,
+  .couleur-fond-b #main a:active {
+    color             : #FE0;
+  }
+
+  .couleur-fond-n #main a:hover,
+  body.couleur-fond-n #main a:active {
+    color           : #444;
+  }
+
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
+     j.mp/textsizeadjust
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
+/*
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; }
+  a.mail:after { content: " (" attr(title) ")"; }
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+  footer, h1 { display: none; }
+  #main, #main ul { font-family: sans-serif; font-size: 11pt; line-height: 15pt; margin: 0 !important;}
+  #main li { margin: 0 !important; clear: both; !important; float: none !important;}
+  span.ponctuation-haute { display: none !important; }
+  #main:before { content: 'Benjamin Menant'; }
+}
