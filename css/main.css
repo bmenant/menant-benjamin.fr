@@ -157,14 +157,214 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
+@font-face {
+    font-family: 'BMBizmeud';
+    src: url('bizmeud-webfont.eot');
+    src: url('bizmeud-webfont.eot?') format('embedded-opentype'),
+         url('bizmeud-webfont.woff') format('woff'),
+         url('bizmeud-webfont.ttf') format('truetype'),
+         url('bizmeud-webfont.svg#bizmeud') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
+/**
+ * Global design and layout
+ *
+ * @section global
+ * =global =layout
+ */
+body {
+    background-size   : cover;
+    background-repeat : no-repeat;
+}
+body.couleur-fond-b,
+body.couleur-fond-n #main {
+    color           : rgb(30, 30, 30);
+    background-color: #FFF;
+}
+.couleur-fond-n,
+.couleur-fond-b #main {
+    color           : rgb(230, 230, 230);
+    background-color: #000;
+}
+
+  /**
+   * Footer and Main parts
+   *
+   * @subsection footer & main
+   * =footer =main
+   */
+    footer {
+        margin: 0 1em 1em;  /* 15px */
+    }
+    .taille-29 footer {
+        margin: 0 2em 2em;
+    }
+    .taille-58 footer {
+        margin: 0 4em 4em;
+    }
+    footer ul {
+        font-size   : 0.733em;
+        line-height : 1.364em;
+    }
+
+    #main ul {
+        font-size   : 2em;  /* 30px */
+        line-height : 0.8em;  /* 30px */
+        padding-top : 0.2em;  /* idem */
+        margin      : 0 .5em 2em; /* 15px */
+    }
+    .taille-29 #main ul {
+        margin: 0 1em 2em;
+    }
+    .taille-58 #main ul {
+        margin: 0 2em 2em;
+    }
+    #main li {
+        float       : left;
+        margin-right: .2em;
+    }
+    .ie8 #main li:after,
+    #main li:not(:last-child):after {
+        content    : '—';
+        margin-left: 0.2em;
+    }
+
+  /**
+   * Header
+   *
+   * @subsection header
+   * =header
+   */
+    h1 {
+        width : 10em; /* 150px + 2*15px */
+        height: 6em;  /* 90px + 2*15px  */
+        margin: 1em;  /* 15px */
+    }
+    .taille-29 h1 {
+        width : 30em; /* 450px + 2*30px */
+        height: 14em; /* 210px + 2*30px */
+        margin: 2em;  /* 30px */
+    }
+    .taille-58 h1 {
+        width : 58em; /* 870px + 2*60px */
+        height: 28em; /* 420px + 2*60px */
+        margin: 4em;  /* 60px */
+    }
+
+/**
+ * Micro typography
+ *
+ * @section micro typography
+ * =microtypography
+ */
+span.ponctuation-haute {
+    margin-left: .125em;
+}
+cite {
+    font-style: normal;
+}
+cite:before {
+    font-family     : Verdana, Arial, sans-serif;
+    font-size-adjust: none;
+    margin-right    : .125em;
+    content         : '«';
+}
+cite:after {
+    font-family     : Verdana, Arial, sans-serif;
+    font-size-adjust: none;
+    margin-left     : .125em;
+    content         : '»';
+}
+.font {
+    font-family     : BMBizmeud, sans-serif;
+    /*font-size-adjust: 0.73;*/
+}
+
+/**
+ * Links
+ *
+ * @section links
+ * =link
+ */
+
+/**
+ * Sur fond blanc
+ *
+ * @subsection blanc
+ */
+.couleur-fond-b a,
+.couleur-fond-b a:active,
+.couleur-fond-b a:visited,
+.couleur-fond-n #main a,
+.couleur-fond-n #main a:active,
+.couleur-fond-n #main a:visited {
+    color: rgb(30, 30, 30);
+}
+.couleur-fond-b a:hover,
+.couleur-fond-b a:focus {
+    color: #000;
+}
+.couleur-fond-b a:focus,
+.couleur-fond-n #main a:focus {
+    color: #FFF;
+    background-color: #000;
+}
+
+/**
+ * Sur fond noir
+ *
+ * @subsection noir
+ */
+.couleur-fond-n a,
+.couleur-fond-n a:active,
+.couleur-fond-n a:visited,
+.couleur-fond-b #main a,
+.couleur-fond-b #main a:active,
+.couleur-fond-b #main a:visited {
+    color: rgb(230, 230, 230);
+}
+.couleur-fond-n a:hover,
+.couleur-fond-n a:focus {
+    color: #FFF;
+}
+.couleur-fond-n a:focus,
+.couleur-fond-b #main a:focus {
+    color: #000;
+    background-color: #FFF;
+}
+
+/**
+ * Liens principaux
+ *
+ * @subsection main
+ */
+#main a {
+    float: left;
+    position: relative;
+    top: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    -webkit-transition: 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+       -moz-transition: 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+         -o-transition: 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+            transition: 140ms margin, 140ms padding, 140ms top, 140ms background-color, 140ms color;
+}
 
 
+.couleur-fond-b #main a:hover,
+.couleur-fond-b #main a:active {
+  color             : #FE0;
+}
 
-
-
-
+.couleur-fond-n #main a:hover,
+body.couleur-fond-n #main a:active {
+  color           : #444;
+}
 
 
 
@@ -211,6 +411,80 @@ nav a:hover {
 }
 
 @media only screen and (min-width: 768px) {
+
+    #main a:hover,
+    #main a:focus,
+    #main a:active {
+        top: -1.2em;
+        padding-bottom:  1.2em;
+        margin-bottom: -1.2em;
+    }
+        #main a span,
+        #main a span,
+        #main a span {
+            display: block;
+            -webkit-transition: 140ms -webkit-transform;
+               -moz-transition: 140ms -moz-transform;
+                 -o-transition: 140ms -o-transform;
+                    transition: 140ms transform;
+        }
+        #main a:hover span,
+        #main a:focus span,
+        #main a:active span {
+            -webkit-transform: scaleY(-1);
+               -moz-transform: scaleY(-1);
+                 -o-transform: scaleY(-1);
+                -ms-transform: scaleY(-1);
+                    transform: scaleY(-1);
+        }
+        .ie.no-csstransforms #main a:hover span,
+        .ie.no-csstransforms #main a:focus span,
+        .ie.no-csstransforms #main a:active span {
+            zoom: -1;
+        }
+
+
+    /**
+     * Liens du pied de page
+     *
+     * @subsection footer
+     */
+    footer a:hover span,
+    footer a:focus span,
+    footer a:active span {
+        -webkit-transform: scaleX(-1);
+           -moz-transform: scaleX(-1);
+             -o-transform: scaleX(-1);
+            -ms-transform: scaleX(-1);
+                transform: scaleX(-1);
+    }
+    .no-csstransforms footer a:hover,
+    .no-csstransforms footer a:focus,
+    .no-csstransforms footer a:active {
+        text-decoration: overline;
+   }
+
+
+    /**
+     * Sur fond blanc
+     *
+     * @subsubsection blanc
+     */
+    .couleur-fond-b #main a:hover,
+    .couleur-fond-b #main a:focus,
+    .couleur-fond-b #main a:active {
+        color: rgb(30, 30, 30);
+    }
+    /**
+     * Sur fond noir
+     *
+     * @subsubsection noir
+     */
+    .couleur-fond-n #main a:hover,
+    .couleur-fond-n #main a:focus,
+    body.couleur-fond-n #main a:active {
+        color: rgb(230, 230, 230);
+    }
 
 /* ====================
     WIDE: CSS3 Effects

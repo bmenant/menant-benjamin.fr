@@ -5,16 +5,12 @@ define('BACKGROUND_PATH', realpath(IMAGES_PATH . 'background/300') . DIRECTORY_S
 define('BENJ_PATH', IMAGES_PATH . 'benj' . DIRECTORY_SEPARATOR);
 
 $backgrounds  = scandir(BACKGROUND_PATH);
-array_splice($backgrounds, 0, 2); // Ignore '.' and '..' entries.
-$random_bgd   = mt_rand(0, count($backgrounds) - 1);
+$random_bgd   = mt_rand(0, count($backgrounds) - 3);
 $filename_bgd = $backgrounds[$random_bgd];
 $color_bgd    = substr($backgrounds[$random_bgd], -5, 1); // Black or White?
 
 $benjs        = scandir(BENJ_PATH);
-array_splice($benjs, 0, 2); // Ignore '.' and '..' entries.
-$random_bnj   = mt_rand(1, count($benjs) / 6); // How many different logotypes?
-$color_bnj    = $color_bgd === 'n' ? 'b' : 'n';
-$filepath_bnj = "images/benj/benj-$random_bnj-10-$color_bnj.png";
+$random_bnj   = mt_rand(1, (count($benjs) - 2) / 6); // How many different logotypes?
 ?>
 <!--[if lt IE 7 ]> <html lang="fr-FR" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="fr-FR" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -24,7 +20,7 @@ $filepath_bnj = "images/benj/benj-$random_bnj-10-$color_bnj.png";
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Benjamin Menant</title>
+  <title>Benjamin Menant, chef de projet Web et multimédia</title>
 
   <meta name="description" content="Benjamin Menant, Chef de projet Web et Multimédia : conception, production, écriture audiovisuelle interactive, Web et multimédia. CV, blog, contact, twitter…" />
   <meta name="description" lang="en" content="Benjamin Menant is a Web & Multimedia Project Manager : design & production, audiovisual & interactive writting, Web & multimedia. Résumé, blog, contact, twitter…" />
@@ -52,30 +48,9 @@ $filepath_bnj = "images/benj/benj-$random_bnj-10-$color_bnj.png";
   <![endif]-->
 
   <div id="container">
-    <h1>
-      <script id="logotype-hook">
-      (function(){
-        var $this       = document.getElementById('logotype-hook'),
-            $image      = document.createElement('img'),
-            thirdsWidth = document.body.offsetWidth / 3 * 2,
-            imageScale  = (thirdsWidth > 812) && '58' || (thirdsWidth > 406) && '29' || '10';
+    <h1 class=""><span class="visuallyhidden">Benj’</span></h1>
 
-        $image.alt        = 'Benj’';
-        $image.id         = 'logotype';
-        $image.src        = 'images/benj/benj-<?php echo $random_bnj; ?>-'
-                          + imageScale
-                          + '-<?php echo $color_bnj; ?>.png';
-
-        document.body.className += ' taille-' + imageScale;
-        $this.parentNode.insertBefore($image, $this);
-      })();
-      </script>
-      <noscript>
-        <img id="logotype" alt="Benj’" src="<?php echo $filepath_bnj; ?>" />
-      </noscript>
-    </h1>
-
-    <div id="main" class="font">
+    <section id="main" class="font">
       <ul class="clearfix">
 
         <li><a class="mail" href="mailto:contact@menant-benjamin.fr" title="contact@menant-benjamin.fr"><span>Courriel</span></a></li>
@@ -83,10 +58,11 @@ $filepath_bnj = "images/benj/benj-$random_bnj-10-$color_bnj.png";
         <li><a href="http://twitter.com/bmenant" title="@bmenant"><span>Twitter</span></a></li>
         <li><a href="https://remixjobs.com/cv/Benjamin-MENANT/3550" title="Curriculum Vitæ sur RemixJobs"><span>CV</span></a></li>
         <li><a href="http://fr.viadeo.com/fr/profile/benjamin.menant"><span>Viadeo</span></a></li>
+        <li><a href="http://fr.linkedin.com/in/bmenant"><span>LinkedIn</span></a></li>
         <!--<li><a href="http://www.diigo.com/user/bmenant" title="Plein d’autres liens"><span>Diigo</span></a></li>-->
 
       </ul>
-    </div>
+    </section>
 
     <div id="footer">
       <ul>
