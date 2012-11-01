@@ -40,7 +40,7 @@ $filepath_bnj = "images/benj/benj-$random_bnj-10-$color_bnj.png";
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
   <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
@@ -88,7 +88,7 @@ $filepath_bnj = "images/benj/benj-$random_bnj-10-$color_bnj.png";
       </ul>
     </div>
 
-    <footer>
+    <div id="footer">
       <ul>
         <li>Toutes les images et photographies de ce site sont les créations de Benjamin Menant et sont publiées sous licence
           <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><span>Creative Commons by-sa-nc</span></a><span class="ponctuation-haute">;</span></li>
