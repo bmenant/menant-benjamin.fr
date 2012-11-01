@@ -8,8 +8,10 @@ html {
     -webkit-text-size-adjust: 100%; /* 2 */
     -ms-text-size-adjust: 100%; /* 2 */
 }
-body, h1 {
+body, h1, h2 {
     margin: 0;
+    font-size: 1em;
+    font-weight: normal;
 }
 a:focus {
     outline: thin dotted;
