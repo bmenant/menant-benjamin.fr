@@ -24,13 +24,13 @@ $b64_bgd      = base64_encode(file_get_contents(BACKGROUND_PATH . $backgrounds[$
 
   <meta name="viewport" content="width=device-width">
 
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/404.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/404.css">
 
-  <script src="js/vendor/modernizr.js"></script>
+  <script src="/js/vendor/modernizr.js"></script>
 </head>
 <body class="couleur-fond-<?php echo $color_bgd; ?>">
 
