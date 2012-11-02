@@ -1,100 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <?php
-define('IMAGES_PATH', realpath(dirname(__FILE__) . '/images') . DIRECTORY_SEPARATOR);
-define('BACKGROUND_PATH', realpath(IMAGES_PATH . 'background/300') . DIRECTORY_SEPARATOR);
+define('IMAGES_PATH', realpath(dirname(__FILE__) . '/images'));
+define('BACKGROUND_PATH', realpath(IMAGES_PATH . '/background') . DIRECTORY_SEPARATOR);
 define('P404_PATH', IMAGES_PATH . '404' . DIRECTORY_SEPARATOR);
 
 $backgrounds  = scandir(BACKGROUND_PATH);
-array_splice($backgrounds, 0, 2); // Ignore '.' and '..' entries.
-$random_bgd   = mt_rand(0, count($backgrounds) - 1);
-$filename_bgd = $backgrounds[$random_bgd];
+$random_bgd   = mt_rand(2, count($backgrounds) - 1);
 $color_bgd    = substr($backgrounds[$random_bgd], -5, 1); // Black or White?
-
-$benjs        = scandir(P404_PATH);
-array_splice($benjs, 0, 2); // Ignore '.' and '..' entries.
-$random_bnj   = mt_rand(1, count($benjs) / 6); // How many different logotypes?
-$color_bnj    = $color_bgd === 'n' ? 'b' : 'n';
-$filepath_bnj = "images/404/404-$random_bnj-10-$color_bnj.png";
+$b64_bgd      = base64_encode(file_get_contents(BACKGROUND_PATH . $backgrounds[$random_bgd]));
 ?>
-<!--[if lt IE 7 ]> <html lang="fr-FR" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="fr-FR" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="fr-FR" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="fr-FR" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="fr-FR" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="fr" class=" lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Rien à cette adresse (404) – Benjamin MENANT</title>
   <meta name="description" content="Page d’erreur 404 : il n’y a rien à cette adresse." />
-  <meta name="author" content="Benjamin MENANT" />
+  <meta name="description" lang="en" content="Page not found at this address." />
+  <meta name="author" content="Benjamin Menant" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width">
 
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/style.css" />
-  <style media="(min-width: 200px) and (max-width: 400px)">
-    body { background-image: url('images/background/300/<?php echo $filename_bgd; ?>'); }
-  </style><style media="(min-width: 401px) and (max-width: 800px)">
-    body { background-image: url('images/background/600/<?php echo $filename_bgd; ?>'); }
-  </style><style media="(min-width: 801px) and (max-width: 1200px)">
-    body { background-image: url('images/background/1000/<?php echo $filename_bgd; ?>'); }
-  </style><style media="(min-width: 1201px)">
-    body { background-image: url('images/background/1400/<?php echo $filename_bgd; ?>'); }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/404.css">
 
-  <script src="js/libs/modernizr-1.6.min.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
 </head>
 <body class="couleur-fond-<?php echo $color_bgd; ?>">
-  <div id="container">
-    <hgroup>
-      <h1>
-        <script id="logotype-hook">
-        (function(){
-          var $this       = document.getElementById('logotype-hook'),
-              $image      = document.createElement('img'),
-              thirdsWidth = document.body.offsetWidth / 3 * 2,
-              imageScale  = (thirdsWidth > 812) && '58' || (thirdsWidth > 406) && '29' || '10';
 
-          $image.alt        = 'Erreur 404';
-          $image.id         = 'logotype';
-          $image.src        = 'images/404/404-<?php echo $random_bnj; ?>-'
-                            + imageScale
-                            + '-<?php echo $color_bnj; ?>.png';
+  <!--[if lt IE 7]>
+      <p lang="en" class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+      <p class="chromeframe">Vous utilisez un navigateur ancien. <a href="http://browsehappy.com/">Mettez-le à jour</a> ou <a href="http://www.google.com/chromeframe/?redirect=true">utilisez Google Chrome Frame</a> pour bénéficier d’une navigation plus agréable et plus sûre.</p>
+  <![endif]-->
 
-          document.body.className += ' taille-' + imageScale;
-          $this.parentNode.insertBefore($image, $this);
-        })();
-        </script>
-        <noscript>
-          <img id="logotype" alt="Erreur 404" src="<?php echo $filepath_bnj; ?>" />
-        </noscript>
-      </h1>
-        <h2 class="visuallyhidden">Rien à cette adresse</h2>
-    </hgroup>
+  <div class="background" style="background-image: url('data:image/jpg;base64,<?php echo $b64_bgd; ?>');">&nbsp;</div>
 
-    <div id="main" class="font">
+  <div class="container">
+    <h1 class="ir p404-1">Page non trouvée</h1>
+    <section class="main">
+      <h2><a href="/">Benjamin Menant, chef de projet multimédia</a></h2>
       <ul class="clearfix">
-        <li><a href="./" title="Retourner en page d’accueil"><span>Benjamin MENANT</span></a></li>
+
+        <li><a class="mail" href="mailto:contact@menant-benjamin.fr" title="contact@menant-benjamin.fr">Courriel</a></li>
+        <li><a href="http://blog.menant-benjamin.fr/">Blog</a></li>
+        <li><a href="http://twitter.com/bmenant" title="@bmenant">Twitter</a></li>
+        <li><a href="https://remixjobs.com/cv/Benjamin-MENANT/3550" title="Curriculum Vitæ sur RemixJobs">CV</a></li>
+        <li><a href="http://fr.viadeo.com/fr/profile/benjamin.menant">Viadeo</a></li>
+        <li><a href="http://fr.linkedin.com/in/bmenant">LinkedIn</a></li>
+        <!--<li><a href="http://www.diigo.com/user/bmenant" title="Plein d’autres liens"><span>Diigo</span></a></li>-->
+
       </ul>
-    </div>
+    </section>
 
     <footer>
       <ul>
-        <li>Toutes les images et photographies de ce site sont la création de son auteur, et sont concernées par une licence
-          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><span>Creative Commons by-sa-nc</span></a><span class="ponctuation-haute">;</span></li>
-        <li>La fonte <cite class="font">Pincoyablack</cite>, utilisée pour cette page, est distribuée par
-          <a title="Pincoyablack, sur Font Squirrel" href="http://www.fontsquirrel.com/fonts/Pincoyablack"><span>Font Squirrel</span></a><span class="ponctuation-haute">;</span></li>
-        <li>Ce site est hébergé par <a href="http://www.sivit.fr/fr/contacts.php" title="Contacter l’hébergeur."><span>Sivit</span></a>.
+        <li>Toutes les images et photographies de ce site sont les créations de Benjamin Menant et sont publiées sous licence
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons by-sa-nc</a><span class="ponctuation-haute">;</span></li>
+        <li>La fonte <cite class="font">Bizmeud</cite> est la création de
+          <a title="Bizmeud, chez Velvetyne Type Foundry" href="http://www.velvetyne.fr#bizmeud">Quentin Bodin et Jil Dodin</a><span class="ponctuation-haute">;</span></li>
+        <li>Cette page est hébergée par <a href="http://www.sivit.fr/fr/contacts.php" title="Contacter l’hébergeur.">Sivit</a>.
           Peut présenter des traces d’arachides et des exuvies d’acquarien.</li>
       </ul>
     </footer>
   </div> <!--! end of #container -->
-
-  <!--[if lt IE 7 ]>
-    <script src="js/libs/dd_belatedpng.js"></script>
-    <script> DD_belatedPNG.fix('#logotype'); </script>
-  <![endif]-->
 </body>
 </html>

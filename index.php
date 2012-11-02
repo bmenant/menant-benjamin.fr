@@ -36,8 +36,7 @@ $random_bnj   = mt_rand(1, (count($benjs) - 2) / 6); // How many different logot
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <script src="js/vendor/modernizr.js"></script>
 </head>
