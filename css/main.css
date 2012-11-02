@@ -164,7 +164,7 @@ h1 {
  */
 h2 {
   font-size: 2.5em;
-  margin: 0 .5em;
+  margin: 0 .5em 1em;
 }
 
 /**
@@ -300,6 +300,10 @@ cite:after {
     }
     .couleur-fond-b .logo-7 {
       background-image: url('../images/benj/benj-7-29-n.png');
+    }
+
+    h2 {
+        margin-bottom: 0;
     }
 
     .csstransforms footer a:hover,
