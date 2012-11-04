@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <?php
-define('IMAGES_PATH', realpath(dirname(__FILE__) . '/images'));
-define('BACKGROUND_PATH', realpath(IMAGES_PATH . '/background') . DIRECTORY_SEPARATOR);
-define('P404_PATH', IMAGES_PATH . '404' . DIRECTORY_SEPARATOR);
+define('BASE_PATH', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+define('CSS_PATH', realpath(BASE_PATH . 'css') . DIRECTORY_SEPARATOR);
+define('BACKGROUND_PATH', realpath(BASE_PATH . 'images/background') . DIRECTORY_SEPARATOR);
 
-$backgrounds  = scandir(BACKGROUND_PATH);
-$random_bgd   = mt_rand(2, count($backgrounds) - 1);
-$color_bgd    = substr($backgrounds[$random_bgd], -5, 1); // Black or White?
-$b64_bgd      = base64_encode(file_get_contents(BACKGROUND_PATH . $backgrounds[$random_bgd]));
+if($_SERVER['REDIRECT_STATUS'] == 200) {
+  // This page has never existed!
+  header('HTTP/1.1 404 Not Found');
+  $error = 404;
+}
+elseif($_SERVER['REDIRECT_STATUS'] == 404
+    || $_SERVER['REDIRECT_STATUS'] == 403
+    || $_SERVER['REDIRECT_STATUS'] == 500) {
+  $error = $_SERVER['REDIRECT_STATUS'];
+}
+else{
+  header('HTTP/1.1 500 Server Error');
+  $error = 500;
+}
+$css   = file_get_contents(sprintf(CSS_PATH . 'error-%d.css', $error));
+switch($error) {
+  case 404:
+    $title   = 'Ressource introuvable';
+    $desc_fr = 'Page d’erreur 404 : il n’y a rien à cette adresse.';
+    $desc_en = '404 error: resource not found.';
+    break;
+  case 403:
+    $title   = 'Accès refusé';
+    $desc_fr = 'Page d’erreur 403 : il est interdit d’accéder à cette ressource.';
+    $desc_en = '403 error: access forbidden.';
+    break;
+  case 500:
+    $title   = 'Erreur serveur';
+    $desc_fr = 'Page d’erreur 500 : problème interne du serveur.';
+    $desc_en = '500 error: internal server error.';
+    break;
+}
+$backgrounds = scandir(BACKGROUND_PATH);
+$random_bgd  = mt_rand(2, count($backgrounds) - 1);
+$color_bgd   = substr($backgrounds[$random_bgd], -5, 1); // Black or White?
+$b64_bgd     = base64_encode(file_get_contents(BACKGROUND_PATH . $backgrounds[$random_bgd]));
 ?>
 <!--[if lt IE 7 ]> <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,20 +47,20 @@ $b64_bgd      = base64_encode(file_get_contents(BACKGROUND_PATH . $backgrounds[$
 <!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Rien à cette adresse (404) – Benjamin MENANT</title>
-  <meta name="description" content="Page d’erreur 404 : il n’y a rien à cette adresse." />
-  <meta name="description" lang="en" content="Page not found at this address." />
+  <title><?php echo $title; ?> – Benjamin MENANT</title>
+  <meta name="description" content="<?php echo $desc_fr; ?>" />
+  <meta name="description" lang="en" content="<?php echo $desc_en; ?>" />
   <meta name="author" content="Benjamin Menant" />
 
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width" />
 
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/404.css">
+  <link rel="stylesheet" href="/css/style.css" />
+  <style><?php echo $css; ?></style>
 
   <script src="/js/vendor/modernizr.js"></script>
 </head>
@@ -42,7 +74,7 @@ $b64_bgd      = base64_encode(file_get_contents(BACKGROUND_PATH . $backgrounds[$
   <div class="background" style="background-image: url('data:image/jpg;base64,<?php echo $b64_bgd; ?>');">&nbsp;</div>
 
   <div class="container">
-    <h1 class="ir p404-1">Page non trouvée</h1>
+    <h1 class="ir error-1"><?php echo $title; ?></h1>
     <section class="main">
       <h2><a href="/">Benjamin Menant, chef de projet multimédia</a></h2>
       <ul class="clearfix">
