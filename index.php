@@ -59,7 +59,7 @@ $random_bnj   = mt_rand(1, (count($benjs) - 2) / 6); // How many different logot
         <li><a class="mail" href="mailto:contact@menant-benjamin.fr" title="contact@menant-benjamin.fr">Courriel</a></li>
         <li><a href="http://blog.menant-benjamin.fr/">Blog</a></li>
         <li><a href="http://twitter.com/bmenant" title="@bmenant">Twitter</a></li>
-        <li><a href="/cv-bmenant.pdf" title="Curriculum Vitæ au format PDF">CV</a></li>
+        <li><a href="/bmenant-cv.pdf" title="Curriculum Vitæ au format PDF">CV</a></li>
         <li><a href="http://fr.viadeo.com/fr/profile/benjamin.menant">Viadeo</a></li>
         <li><a href="http://fr.linkedin.com/in/bmenant">LinkedIn</a></li>
         <!--<li><a href="http://www.diigo.com/user/bmenant" title="Plein d’autres liens"><span>Diigo</span></a></li>-->
