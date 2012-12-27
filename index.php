@@ -78,5 +78,17 @@ $random_bnj   = mt_rand(1, (count($benjs) - 2) / 6); // How many different logot
       </ul>
     </footer>
   </div> <!--! end of #container -->
+  <!-- Piwik -->
+  <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.menant-benjamin.fr/" : "http://stats.menant-benjamin.fr/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  </script><script type="text/javascript">
+    try {
+      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
+      piwikTracker.trackPageView();
+      piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+  </script><noscript><p><img src="http://stats.menant-benjamin.fr/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
+  <!--! End Piwik Tracking Code -->
 </body>
 </html>
