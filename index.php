@@ -78,19 +78,13 @@ $random_bnj   = mt_rand(1, (count($benjs) - 2) / 6); // How many different logot
       </ul>
     </footer>
   </div> <!--! end of #container -->
-  <!-- The Internet Defense League -->
-  <script type="text/javascript">
-    window._idl = {};
-    _idl.variant = "banner";
-    (function() {
-        var idl = document.createElement('script');
-        idl.type = 'text/javascript';
-        idl.async = true;
-        idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
-        document.getElementsByTagName('body')[0].appendChild(idl);
-    })();
-  </script>
-  <!-- End IDL’s alert code -->
+  <!-- The Day We Fight Back code -->
+  <!--[if !(lte IE 8)]><!-->
+     <script type="text/javascript">
+       (function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=document.location.protocol+"//d1agz031tafz8n.cloudfront.net/thedaywefightback.js/widget.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
+     </script>
+  <!--<![endif]-->
+  <!--! End TDWFB code -->
   <!-- Piwik -->
   <script type="text/javascript">
     var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.menant-benjamin.fr/" : "http://stats.menant-benjamin.fr/");
