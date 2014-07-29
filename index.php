@@ -78,24 +78,20 @@ $random_bnj   = mt_rand(1, (count($benjs) - 2) / 6); // How many different logot
       </ul>
     </footer>
   </div> <!--! end of #container -->
-  <!-- The Day We Fight Back code -->
-  <!--[if !(lte IE 8)]><!-->
-     <script type="text/javascript">
-       (function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=document.location.protocol+"//d1agz031tafz8n.cloudfront.net/thedaywefightback.js/widget.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
-     </script>
-  <!--<![endif]-->
-  <!--! End TDWFB code -->
   <!-- Piwik -->
   <script type="text/javascript">
-    var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.menant-benjamin.fr/" : "http://stats.menant-benjamin.fr/");
-    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-  </script><script type="text/javascript">
-    try {
-      var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
-      piwikTracker.trackPageView();
-      piwikTracker.enableLinkTracking();
-    } catch( err ) {}
-  </script><noscript><p><img src="http://stats.menant-benjamin.fr/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://stats.menant-benjamin.fr/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', 3]);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+      g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="http://stats.menant-benjamin.fr/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
   <!--! End Piwik Tracking Code -->
 </body>
 </html>
